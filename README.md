@@ -52,7 +52,7 @@ QFINDR Enterprise APIを利用し、外部の生成AIと連携するためのMCP
 
 ### 👉 QFINDR MCPサービスの活用イメージ
 
-外部生成AIサービス(Claude、Claude Desktop、ChatGPT、Copilot Studio、VSCode等)と連携し、自然言語処理での企業検索や企業分析を可能にします。
+外部生成AIサービス(Claude、Claude Desktop、ChatGPT、Copilot Studio、Gemini CLI、Antigravity、VSCode等)と連携し、自然言語処理での企業検索や企業分析を可能にします。
 
 > [!TIP]
 > MCPサービスの利用には、QFINDR Enterpriseプランの契約もしくはProプランでのオプション契約が必要です。
@@ -67,13 +67,13 @@ QFINDR Enterprise APIを利用し、外部の生成AIと連携するためのMCP
 
 プロンプト例：
 
-```
+```markdown
 QFINDRで群馬県の企業で売上高20億円以下(推定含む)で、設立が浅い企業で水の浄化関連の装置を作っているような会社のリストを出したい。ある場合は、QFINDRの検索ページへのURLも併記して。
 ```
 
 結果例：
 
-```
+```markdown
 検索結果が見つかりました。群馬県で売上高20億円以下(推定含む)、設立が浅く、水の浄化関連装置を製造している企業を中心に12社が該当しました。該当企業リスト特に装置製造に該当する主要な3社:
 
 株式会社YYYYYY
@@ -92,13 +92,13 @@ URL: http://www.yyyyyy.com/
 
 プロンプト例：
 
-```
+```markdown
 株式会社クレジット・プライシング・コーポレーション(https://www.credit-pricing.com/)の類似企業を金融リスクモデリングの観点でQFINDRで探してください。ある場合は、QFINDRの検索ページへのURLも併記して。
 ```
 
 結果例：
 
-```
+```markdown
 株式会社クレジット・プライシング・コーポレーション(CPC)の類似企業を金融リスクモデリングの観点から探すため、まずCPCの事業内容を確認してから、QFINDRで検索します。
 
 ...
