@@ -219,6 +219,33 @@ powershellを用いて以下のコマンドを実行してください。
 
 </details>
 
+<details><summary>Gemini CLI/Antigravityの場合</summary>
+
+⚠️ Web版のGeminiでは、MCP機能は提供されていません。Gemini CLIもしくはAntigravityをご利用ください。
+
+Antigravityの場合、以下の手順で設定を行ってください。
+
+Antigravityの画面右下にある「Antigravity - Settings」より、「Customizations　Manage」をクリックし、右上の３点メニューより「MCP Servers」を選択します。
+
+その後、「Manage MCP Servers」より、「View raw config」を押下し、以下の設定ファイルを編集します。
+
+`.gemini/antigravity/mcp_config.json` の設定例：
+
+```json
+{
+  "mcpServers": {
+    "qfindr-mcp": {
+      "serverUrl": "https://qfindr.jp/mcp?token=YOUR_API_TOKEN_HERE"
+    }
+  }
+}
+```
+
+保存後、「Refresh」を行い、ツール一覧が出ることを確認します。
+
+</details>
+
+
 
 <details><summary>Copilot Studioの場合</summary>
 
