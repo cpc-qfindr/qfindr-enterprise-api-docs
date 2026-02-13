@@ -169,8 +169,7 @@ Windowsでは `npx` のパス解決でエラー（`C:\Program` ...）が発生�
 }
 ```
 
-> [!TIP]
-> npxの利用のため、node.jsのインストールが必要となります。
+⚠️ npxの利用のため、node.jsのインストールが必要となります。
 
 node.jsのインストール方法(windowsの場合)：
 
@@ -185,8 +184,7 @@ node.jsのインストール方法(windowsの場合)：
 
 <details><summary>Claude(Web版)の場合</summary>
 
-> [!WARNING]
-> Claude(Web版)では、無料版ではMCP機能は提供されておりません。Claude Pro以上で利用可能です。
+⚠️ Claude(Web版)では、無料版ではMCP機能は提供されておりません。Claude Pro以上で利用可能です。
 
 ブラウザにてClaudeにログインを行い、「設定」→「コネクタ」→「カスタムコネクタ」にて、下記の通り設定を行ってください。
 
@@ -201,8 +199,7 @@ node.jsのインストール方法(windowsの場合)：
 
 <details><summary>ChatGPTの場合</summary>
 
-> [!WARNING]
-> ChatGPTでは、無料版ではMCP機能は提供されておりません。ChatGPT Plus以上で利用可能です。
+⚠️ ChatGPTでは、無料版ではMCP機能は提供されておりません。ChatGPT Plus以上で利用可能です。
 
 ブラウザにてChatGPTにログインを行い、「設定」→「アプリ」にて、下記の通り設定を行ってください。
 
@@ -235,11 +232,8 @@ node.jsのインストール方法(windowsの場合)：
 |ヘッダー名|Authorization|
 |ヘッダーの値|Bearer YOUR_API_TOKEN|
 
-> [!TIP]
 > ヘッダーの値は上記画面での設定ではなく、その後の「接続」段階で設定します。
 > 「新しい接続を作成」にて遷移した画面に入力をします。
-
-> [!TIP]
 > 「接続マネージャ」で当該MCPサーバへの接続を行ってください。
 
 
