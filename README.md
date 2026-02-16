@@ -119,17 +119,67 @@ URL: http://www.yyyyyy.com/
 ...
 ```
 
+> [!TIP]
+> Web上の情報や特定の企業リストを列挙したうえで、それらとの類似企業を探すような使い方も可能です。
+
 #### ③ 企業分析
 
+プロンプト例：
+
+```markdown
+株式会社クレジット・プライシング・コーポレーション (https://www.credit-pricing.com/) の特徴などをQFINDRで分析した結果を教えて。
+```
+
+結果例：
+
+```markdown
+株式会社クレジット・プライシング・コーポレーションについて、QFINDRで分析いたします。
+
+株式会社クレジット・プライシング・コーポレーション 企業分析
+基本情報
+
+本社所在地: 東京都中央区明石町8番1号
+法人番号: 5010001093153
+...
+
+事業内容
+金融機関や投資会社向けに以下のサービスを提供:
+
+モデルやデータベースの提供
+
+... (以下、QFINDRの分析結果が続く)
+```
 
 ### ⚙️ MCPサービスの設定方法
 
 > [!WARNING]
-> MCPサービスのご利用には、QFINDR Enterprise APIのAPIトークンが必要となります。QFINDRのアカウントページにてAPIトークンをご確認ください。
+> MCPサービスのご利用には、QFINDR Enterprise APIのAPIトークンが必要となります。QFINDRのアカウントページ (https://qfindr.jp/account) にてAPIトークンをご確認ください。`[YOUR_API_TOKEN]`を、ご自身のAPIトークン文字列に置き換えて設定ください。
 
 各生成AIサービスによって設定方法が異なります。無料版では利用できないサービスもございます。
 
-<details><summary>Claude Desktop の場合</summary>
+<details><summary>Copilot Studioの場合(<b>推奨</b>)</summary>
+
+ログイン後、「エージェント」より新しいエージェントを作成します。
+作成したエージェントの「ツール」タブより「ツールを追加する」を選択します。
+新規作成より「モデルコンテキストプロトコル」を選択します。
+
+|項目|値|
+|:---|:---|
+|サーバー名|qfindr-mcp|
+|サーバーの記述|QFINDRを用いて企業検索や企業分析を行うためのAPIを利用するためのMCPサーバ|
+|サーバーのURL|https://qfindr.jp/mcp|
+|認証|APIキー|
+|タイプ|ヘッダー|
+|ヘッダー名|Authorization|
+|ヘッダーの値|Bearer [YOUR_API_TOKEN]|
+
+> ヘッダーの値は上記画面での設定ではなく、その後の「接続」段階で設定します。
+> 「新しい接続を作成」にて遷移した画面に入力をします。
+> 「接続マネージャ」で当該MCPサーバへの接続を行ってください。
+
+</details>
+
+<details><summary>Claude Desktop の場合(<b>推奨</b>)</summary>
 
 `claude_desktop_config.json` の設定例:
 
@@ -145,7 +195,7 @@ URL: http://www.yyyyyy.com/
         "mcp-remote",
         "https://qfindr.jp/mcp",
         "--header",
-        "Authorization: Bearer YOUR_API_TOKEN"
+        "Authorization: Bearer [YOUR_API_TOKEN]"
       ]
     }
   }
@@ -168,7 +218,7 @@ Windowsでは `npx` のパス解決でエラー（`C:\Program` ...）が発生�
         "mcp-remote",
         "https://qfindr.jp/mcp",
         "--header",
-        "Authorization: Bearer YOUR_API_TOKEN"
+        "Authorization: Bearer [YOUR_API_TOKEN]"
       ]
     }
   }
@@ -201,7 +251,7 @@ powershellを用いて以下のコマンドを実行してください。
 |項目|値|
 |:---|:---|
 |名前|qfindr-mcp|
-|リモートMCPサーバURL|https://qfindr.jp/mcp?token=YOUR_API_TOKEN|
+|リモートMCPサーバURL|https://qfindr.jp/mcp?token=[YOUR_API_TOKEN]|
 |詳細設定(OAuth ClientID) | 空欄 |
 |詳細設定(OAuthクライアントシークレット) | 空欄|
 
@@ -220,7 +270,7 @@ powershellを用いて以下のコマンドを実行してください。
 |項目|値|
 |:---|:---|
 |名前|qfindr-mcp|
-|MCPサーバのURL|https://qfindr.jp/mcp?token=YOUR_API_TOKEN|
+|MCPサーバのURL|https://qfindr.jp/mcp?token=[YOUR_API_TOKEN]|
 |認証 | 認証なし |
 
 </details>
@@ -241,7 +291,7 @@ Antigravityの画面右下にある「Antigravity - Settings」より、「Custo
 {
   "mcpServers": {
     "qfindr-mcp": {
-      "serverUrl": "https://qfindr.jp/mcp?token=YOUR_API_TOKEN_HERE"
+      "serverUrl": "https://qfindr.jp/mcp?token=[YOUR_API_TOKEN]"
     }
   }
 }
@@ -251,30 +301,6 @@ Antigravityの画面右下にある「Antigravity - Settings」より、「Custo
 
 </details>
 
-
-
-<details><summary>Copilot Studioの場合</summary>
-
-ログイン後、「エージェント」より新しいエージェントを作成します。
-作成したエージェントの「ツール」タブより「ツールを追加する」を選択します。
-新規作成より「モデルコンテキストプロトコル」を選択します。
-
-|項目|値|
-|:---|:---|
-|サーバー名|qfindr-mcp|
-|サーバーの記述|QFINDRを用いて企業検索や企業分析を行うためのAPIを利用するためのMCPサーバ|
-|サーバーのURL|https://qfindr.jp/mcp|
-|認証|APIキー|
-|タイプ|ヘッダー|
-|ヘッダー名|Authorization|
-|ヘッダーの値|Bearer YOUR_API_TOKEN|
-
-> ヘッダーの値は上記画面での設定ではなく、その後の「接続」段階で設定します。
-> 「新しい接続を作成」にて遷移した画面に入力をします。
-> 「接続マネージャ」で当該MCPサーバへの接続を行ってください。
-
-
-</details>
 
 ### ☑️ 動作テスト
 
